@@ -1,5 +1,5 @@
 from Kampf import*
-from Aktionsblatt import*
+from Charakter import*
 from Definitionen import*
 
 page = [
@@ -21,7 +21,7 @@ page = [
 ]
 
 
-
+print(Charakter.ausdauerpunkte)
 
 
 ks_wolf = kampfstaerke + waffenboni(waffen,waffenstaerke)+ bes_geg_boni()[0]

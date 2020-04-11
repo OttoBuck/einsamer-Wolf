@@ -1,4 +1,4 @@
-from Aktionsblatt import*
+from Charakter import*
 
 
 

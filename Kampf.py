@@ -1,5 +1,5 @@
 from random import*
-from Aktionsblatt import*
+from Charakter import*
 
 
 ka0 = [(0,99),[0,99],[0,8],[0,8],[1,7],[2,6],[3,5],[4,4],[5,3],[6,0]] #-11-
