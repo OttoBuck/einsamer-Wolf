@@ -5,7 +5,9 @@ class CharakterLoader:
     __charakter_file = "wolf.json"
 
     @staticmethod
-    def LoadCharakter():
+    def LoadCharakter() -> Charakter:
+        """ Loads the character-file from the default-location.
+            Returns the initialized character"""
         try:
             file = open(CharakterLoader.__charakter_file)
             data = file.read()
@@ -15,7 +17,8 @@ class CharakterLoader:
             return CharakterLoader.__create_charakter_with_dialog();
 
     @staticmethod
-    def SaveCharakter(charakter):
+    def SaveCharakter(charakter: Charakter) -> None:
+        """ Saves the charakter at the default location."""
         charakter_json = json.dumps(charakter.__dict__, indent=4, ensure_ascii=False)
         file = open(CharakterLoader.__charakter_file, "w")
         file.write(charakter_json)
@@ -23,7 +26,8 @@ class CharakterLoader:
         pass
 
     @staticmethod
-    def __create_charakter_with_dialog():
+    def __create_charakter_with_dialog() -> Charakter:
+        """ Creates a new charakter. """
         # TODO: Show the attributes to the user and give possibility to re-create.
         return Charakter()
 
