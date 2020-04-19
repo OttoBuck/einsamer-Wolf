@@ -1,5 +1,5 @@
+from CharakterLoader import CharakterLoader
 from Kampf import*
-from Charakter import*
 from Definitionen import*
 
 page = [
@@ -21,8 +21,8 @@ page = [
 ]
 
 
-print(Charakter.ausdauerpunkte)
-
+# get charakter
+wolf = CharakterLoader.LoadCharakter()
 
 ks_wolf = kampfstaerke + waffenboni(waffen,waffenstaerke)+ bes_geg_boni()[0]
 ausdauer_wolf = ausdauer
