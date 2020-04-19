@@ -1,8 +1,7 @@
 from enum import Enum
 
-class Waffentyp(Enum):
-    Stab= 1
-    Streitkolben = 2
-    Langschwert = 3
+class Waffentyp(str, Enum):
+    Stab= 'stab'
+    Streitkolben = 'streitkolben'
+    Langschwert = 'langschwert'
 
-Waffentyp.Stab
