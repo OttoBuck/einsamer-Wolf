@@ -7,7 +7,30 @@ from Waffentyp import Waffentyp
 
 
 class Charakter:
-    def __init__(self):
+
+    # TODO: How do you implement multiple constructors in python? Double check.
+    def __init__(self, wolf_data = None):
+        if(wolf_data == None):
+            self.__init_empty()
+        else:
+            self.__init_wolf_data( wolf_data)
+
+    def __init_wolf_data(self, wolf_data):
+        self.kaifähigkeiten = wolf_data["kaifähigkeiten"]
+        self.kampfstärke = wolf_data["kampfstärke"]
+        self.ausdauerpunkte = wolf_data["ausdauerpunkte"]
+        self.ausdauerpunkte_max = wolf_data["ausdauerpunkte_max"]
+        self.kaidisziplinen_max = wolf_data["kaidisziplinen_max"]
+        self.rucksack = wolf_data["rucksack"]
+        self.besondere_gegenstände = wolf_data["besondere_gegenstände"]
+        self.waffen = wolf_data["waffen"]
+        self.mahlzeiten = wolf_data["mahlzeiten"]
+        self.tragbeutel = wolf_data["tragbeutel"]
+        self.kaifähigkeiten = list(map(lambda x: Waffentyp[x], wolf_data["kaifähigkeiten"]))
+        self.seitenzahl = wolf_data["seitenzahl"]
+
+    def __init_empty(self):
+        self.seitenzahl = 0
         self.kaifähigkeiten = []
         self.kampfstärke = randint(11,21)
         self.ausdauerpunkte = randint(21,31)
@@ -19,7 +42,7 @@ class Charakter:
         self.mahlzeiten = 0
         self.tragbeutel = randint(11,21)
         self.kaifähigkeiten.append(Waffentyp.Langschwert)
-        self.seitenzahl = 0
+
 
 waffenstaerke = [0,0,1,0,0,0,0,0,0,0]
 kai = [1,1,1,0,1,waffenstaerke,1,0,0,0]
