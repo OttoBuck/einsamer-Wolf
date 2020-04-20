@@ -12,7 +12,7 @@ class CharakterLoader:
             file = open(CharakterLoader.__charakter_file)
             data = file.read()
             wolf_data = json.loads(data)
-            return Charakter(wolf_data)
+            return Charakter.from_json_dic(wolf_data)
         except IOError:
             return CharakterLoader.__create_charakter_with_dialog();
 
@@ -29,5 +29,5 @@ class CharakterLoader:
     def __create_charakter_with_dialog() -> Charakter:
         """ Creates a new charakter. """
         # TODO: Show the attributes to the user and give possibility to re-create.
-        return Charakter()
+        return Charakter.crate_random()
 

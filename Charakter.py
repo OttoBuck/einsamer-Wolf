@@ -9,39 +9,51 @@ from Waffentyp import Waffentyp
 class Charakter:
 
     # TODO: How do you implement multiple constructors in python? Double check.
-    def __init__(self, wolf_data = None):
-        if(wolf_data == None):
-            self.__init_empty()
-        else:
-            self.__init_wolf_data( wolf_data)
+    def __init__(self, seitenzahl, kampfstärke, ausdauerpunkte, ausdauerpunkte_max, kaidisziplinen_max, rucksack, besondere_gegenstände, waffen, mahlzeiten, tragbeutel, kaifähigkeiten):
+        self.seitenzahl = seitenzahl
+        self.kampfstärke = kampfstärke
+        self.ausdauerpunkte = ausdauerpunkte
+        self.ausdauerpunkte_max = ausdauerpunkte_max
+        self.kaidisziplinen_max = kaidisziplinen_max
+        self.rucksack = rucksack
+        self.besondere_gegenstände = besondere_gegenstände
+        self.waffen = waffen
+        self.mahlzeiten = mahlzeiten
+        self.tragbeutel = tragbeutel
 
-    def __init_wolf_data(self, wolf_data):
-        self.kaifähigkeiten = wolf_data["kaifähigkeiten"]
-        self.kampfstärke = wolf_data["kampfstärke"]
-        self.ausdauerpunkte = wolf_data["ausdauerpunkte"]
-        self.ausdauerpunkte_max = wolf_data["ausdauerpunkte_max"]
-        self.kaidisziplinen_max = wolf_data["kaidisziplinen_max"]
-        self.rucksack = wolf_data["rucksack"]
-        self.besondere_gegenstände = wolf_data["besondere_gegenstände"]
-        self.waffen = wolf_data["waffen"]
-        self.mahlzeiten = wolf_data["mahlzeiten"]
-        self.tragbeutel = wolf_data["tragbeutel"]
-        self.kaifähigkeiten = list(map(lambda x: Waffentyp[x], wolf_data["kaifähigkeiten"]))
-        self.seitenzahl = wolf_data["seitenzahl"]
+    @classmethod
+    def crate_random(cls):
+        ausdauerpunkte = randint(21,31)
+        return cls(
+            seitenzahl = 0,
+            kampfstärke = randint(11,21),
+            ausdauerpunkte = ausdauerpunkte,
+            ausdauerpunkte_max = ausdauerpunkte,
+            kaidisziplinen_max = 5,
+            rucksack = [],
+            besondere_gegenstände = [],
+            waffen = [],
+            mahlzeiten = 0,
+            tragbeutel = randint(11,21),
+            kaifähigkeiten = [Waffentyp.Langschwert]
+        )
 
-    def __init_empty(self):
-        self.seitenzahl = 0
-        self.kaifähigkeiten = []
-        self.kampfstärke = randint(11,21)
-        self.ausdauerpunkte = randint(21,31)
-        self.ausdauerpunkte_max = self.ausdauerpunkte
-        self.kaidisziplinen_max = 5
-        self.rucksack = []
-        self.besondere_gegenstände = []
-        self.waffen = []
-        self.mahlzeiten = 0
-        self.tragbeutel = randint(11,21)
-        self.kaifähigkeiten.append(Waffentyp.Langschwert)
+    @classmethod
+    def from_json_dic(cls, character_as_json: str):
+        return cls(
+            kampfstärke = character_as_json["kampfstärke"],
+            ausdauerpunkte = character_as_json["ausdauerpunkte"],
+            ausdauerpunkte_max = character_as_json["ausdauerpunkte_max"],
+            kaidisziplinen_max = character_as_json["kaidisziplinen_max"],
+            rucksack = character_as_json["rucksack"],
+            besondere_gegenstände = character_as_json["besondere_gegenstände"],
+            waffen = character_as_json["waffen"],
+            mahlzeiten = character_as_json["mahlzeiten"],
+            tragbeutel = character_as_json["tragbeutel"],
+            kaifähigkeiten = list(map(lambda x: Waffentyp[x], character_as_json["kaifähigkeiten"])),
+            seitenzahl = character_as_json["seitenzahl"]
+        )
+
 
 
 waffenstaerke = [0,0,1,0,0,0,0,0,0,0]
