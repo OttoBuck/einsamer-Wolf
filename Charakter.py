@@ -35,7 +35,7 @@ class Charakter:
             waffen = [],
             mahlzeiten = 0,
             tragbeutel = randint(11,21),
-            kaifähigkeiten = [Waffentyp.Langschwert]
+            kaifähigkeiten = [Waffentyp.Breitschwert]
         )
 
     @classmethod

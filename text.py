@@ -23,7 +23,7 @@ page = [
 
 # get charakter
 wolf = CharakterLoader.LoadCharakter()
-
+CharakterLoader.SaveCharakter(wolf)
 ks_wolf = kampfstaerke + waffenboni(waffen,waffenstaerke)+ bes_geg_boni()[0]
 ausdauer_wolf = ausdauer
 
