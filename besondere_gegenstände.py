@@ -1,4 +1,5 @@
 from enum import Enum
+# TODO: Rüstungsklasse mit
 
 class besondere_gegenstände(Enum):
     schild= 1

@@ -1,0 +1,43 @@
+Was macht dieses Programm eigentlich?
+
+Ziel ist es die Fantasyrollenspielbücher "Einsamer Wolf" in ein Python-programm zu bringen.
+
+text
+    text.py ist das Hauptprogramm.
+    Hier wird der Charakter geladen und das Buch wird gestartet.
+    Später soll der Text ausgelagert werden, dieser ist momentan aber noch im selben fyle
+
+CharacterLoader / character.json
+    CharacterLoader.py lässt einen Charakter erstellen, speichern oder laden.
+    Dazu greift es auf Charakter.py zu.
+    Beim speichern wird ein character.json dokument erstellt.
+    dieses kann später wieder aufgerufen werden, um den Charakter zu laden.
+
+Kampf
+    Kampf.py wird aufgerufen, wenn ein Kampf stattfindet.
+    Hier wird mithilfe der Boni (Denkstrahl, Gedankensperre) der Kampfquotient aufgerufen.
+    In einer Tabelle sind die Schadenswerte notiert. Diese hängen vom Kampfquotient und von einer Zufallszahl ab.
+
+Definitionen
+    Definitionen soll Kampf helfen, die Kampfstärke und Ausdauer zu berechnen.
+    Dieses Programm soll später aber ausgelagert werden.
+    Die Kampfstärke soll dann direkt von den Gegenständen gesteigert werden
+
+random
+    random.py ist dazu da um zufällige Variabeln auszugeben.
+    #TODO weshalb brauche ich das? kann ich nicht einfach "from random import*" benutzen?
+    "Be creative, this has potential for a mini-game-like expirience." Wie ist das gemeint?
+
+Charakter
+    Charakter.py enthält die Klasse Charakter.
+    Dort sind alle Informationen enthalten, die mein Charakter benötigt.
+    #TODO charakterklasse besondere gegenständeliste und rucksackgegenstände hinzufügen.
+    Diese sind: Ausrüstung, Fähigkeiten, Aktuelle Stats/maximale Stats, Seitenzahl
+    Dort wird das Erstellen, und laden und speichern eines Charakters definiert
+
+Waffentyp:
+    Dort wird eine Klasse mit Waffen definiert.
+    Diese sollen später einer superclass "Armory.py" untergeordnet werden.
+
+Armory:
+    Armory.py ist die Superklasse von Waffen und Rüstung
