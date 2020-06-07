@@ -12,14 +12,15 @@ class CharakterLoader:
             file = open(CharakterLoader.__charakter_file)
             data = file.read()
             wolf_data = json.loads(data)
-            return Charakter.from_json_dic(wolf_data)
+            return Charakter.from_json(wolf_data)
         except IOError:
             return CharakterLoader.__create_charakter_with_dialog();
 
     @staticmethod
     def SaveCharakter(charakter: Charakter) -> None:
         """ Saves the charakter at the default location."""
-        charakter_json = json.dumps(charakter.__dict__, indent=4, ensure_ascii=False)
+        # charakter_json = json.dumps(charakter.__dict__, indent=4, ensure_ascii=False)
+        charakter_json = charakter.to_json()
         file = open(CharakterLoader.__charakter_file, "w")
         file.write(charakter_json)
         file.close()

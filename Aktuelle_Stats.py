@@ -1,3 +1,0 @@
-from Charakter import*
-
-

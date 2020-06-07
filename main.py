@@ -5,7 +5,7 @@ from Definitionen import*
 page = [
     [["Du entdeckst eine Leiche. \n Willst du sie durchsuchen, lies weiter bei 1 \n willst du weiter entlang des Pfades gehen, lies weiter bei 2"]],    #pg 0
     #pg 1
-        [["Beim durchsuchen entdeckst du ein Kettenhemd",'Kettenhemd',besondere_gegenstände, "Lies weiter bei 3"]],
+        [["Beim durchsuchen entdeckst du ein Kettenhemd",'Kettenhemd', Equippable(BodyPart.OffHand, 2, 0), "Lies weiter bei 3"]],
     #pg2
         [["Du siehst eine Gestalt in der Ferne."],
             [[1,"Willst du dich tarnen und im Unterholz verstecken, lies weiter bei 6"],[0],
@@ -24,8 +24,7 @@ page = [
 # get charakter
 wolf = CharakterLoader.LoadCharakter()
 CharakterLoader.SaveCharakter(wolf)
-ks_wolf = kampfstaerke + waffenboni(waffen,waffenstaerke)+ bes_geg_boni()[0]
-ausdauer_wolf = ausdauer
+# ks_wolf = wolf.fighting_power + waffenboni(waffen,waffenstaerke)+ bes_geg_boni()[0]
 
 
 
